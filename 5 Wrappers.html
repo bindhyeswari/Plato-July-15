@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+    </script>
+    <script>
+
+        // primitives --> string, number, boolean, null, undefined, Symbol (ES6)
+        // object
+
+        var str = 'Ronak Jethwa';
+        print('typeof str');
+        // wrapper object
+        console.log(str.substring(0, 4)); // str --> object --> call the .substring --> discards the object
+
+        var x = new String('Ronak Jethwa');
+        print('typeof x');
+        console.log(x.substring(0, 4));
+        console.log(x.hasOwnProperty('substring')); // false
+        console.log(String.prototype.hasOwnProperty('substring')); // false
+        print('Object.getPrototypeOf(x) === String.prototype');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

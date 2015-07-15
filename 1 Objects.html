@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+    </script>
+    <script>
+
+        function Car() { // Constructor functions
+            this.doors = 4;
+        }
+        Car.prototype.company = 'BMW'; // instance property
+        Car.company = 'Bayerische Motoren Werke'; // static property - this will not be inherited by bmw
+
+        var bmw = new Car;
+
+        // create a new object
+        // sets the parent of the new object to Car.prototype
+        // invokes the Car() function and gives access to the new object via "this" keyword
+
+        console.log(bmw.doors);
+        print('bmw.company');
+        print("bmw.hasOwnProperty('doors')");
+
+        console.log(typeof Car); // function
+
+
+        print('Object.getPrototypeOf(bmw) === Car.prototype');
+
+        print('typeof Function');
+        print('typeof Date');
+        print('typeof Array');
+
+        var date = new Date(); // constructors in js can be functions only
+
+
+        var obj = new Object();
+        // Object.create();
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

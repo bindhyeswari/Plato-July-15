@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        var parent = { type: 'parent' }; // object literal way to create a JS object
+
+        console.log(parent.type);
+
+        var child = Object.create(parent);
+
+        // What Object.create does
+        // takes an object as an input
+        // creates a new object, sets the attribute prototype of that object to the input object
+        // returns a ref to the new object
+
+        console.log(child.type); // child does not have an own property ...
+        child.type = 'child'; // define own property on child object
+        console.log(child.type);
+
+        // Prototypal chain
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

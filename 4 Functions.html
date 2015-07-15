@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+
+        function sum(x, y) { // function declaration
+            return x + y;
+        }
+
+        print('sum(1, 2)');
+
+        var sum_v2 = new Function('x', 'y', 'return x + y;'); // bad code -- do not use in prod
+
+        print('sum_v2(1, 2)')
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+    </script>
+    <script>
+
+        var x = { name: 'Hamid' };
+
+        console.log(x.toString());
+        console.log(Object.prototype.toString.call(x));
+
+        var date = new Date();
+        console.log(Date.prototype.toString.call(date));
+        console.log(Object.prototype.toString.call(date));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

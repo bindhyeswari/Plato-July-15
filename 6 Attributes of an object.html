@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+    </script>
+    <script>
+
+        // Attributes of an object - prototype, extensible, class / class name
+        // Cannot access attributes of an object as properties - cannot use the . operator
+
+        // extensible
+
+        var x = {};
+        print('Object.isExtensible(x)');
+        x.name = 'Likhita'; // extending the object - adding a new property dynamically
+        console.log(x.name);
+
+        Object.preventExtensions(x);
+        x.type = 'UI Developer';
+        print('Object.isExtensible(x)');
+        console.log(x.type);
+
+        // class name attribute
+        function getClassName(obj) {
+            var str = Object.prototype.toString.call(obj); // [object Object]
+            return str.substring(8, str.length - 1);
+        }
+
+        console.log(getClassName(x));
+        var date = new Date();
+        console.log(getClassName(date));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

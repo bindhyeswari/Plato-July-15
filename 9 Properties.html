@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        var x = {
+            name: 'Natalie',
+            id: '976257cf-8b95-4a2b-a2d1-439986f988f3'
+        };
+
+        console.log(Object.getOwnPropertyDescriptor(x, 'name'));
+
+        // writable attribute of a property
+        Object.defineProperty(x, 'name', {
+            writable: false
+        });
+        x.name = 'Likhita';
+        console.log(x.name); // . operator
+        console.log(x['name']); // associative array notation
+        var property_name = 'name';
+        console.log(x[property_name]);
+
+        // enumerable
+        for (var prop in x) { // enumeration loop
+            console.log(prop, ': ', x[prop]);
+        }
+        Object.defineProperty(x, 'id', {
+            enumerable: false
+        });
+        console.log('=========================');
+        for (prop in x) { // enumeration loop
+            console.log(prop, ': ', x[prop]);
+        }
+        console.log(Object.getOwnPropertyDescriptor(Object.prototype, 'toString'));
+        Object.defineProperty(x, 'id', {
+            configurable: false
+        });
+
+        // configurable
+        console.log('==malicious code==');
+        Object.defineProperty(x, 'id', {
+            enumerable: true
+        });
+        for (prop in x) { // enumeration loop
+            console.log(prop, ': ', x[prop]);
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

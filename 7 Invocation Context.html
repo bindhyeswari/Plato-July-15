@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+    </script>
+    <script>
+
+        var x = {
+            name: 'Likhita',
+            sayHello: function () {
+                console.log('Hello from ' + this.name);
+            }
+        };
+
+        var n = {
+            name: 'Natalie'
+        };
+
+        x.sayHello();
+
+        // sayHello - method of x
+
+        // for a method, the invocation context ("this") is the object that owns the method
+
+        function test() {
+            console.log('this is: ', this);
+        }
+        test();
+        // for a global function, the invocation context is the global object
+        // browsers - window is the global object
+
+        var y = new test();
+        // for a constructor the invocation context is the new object(y) that is created by the new operator
+
+        x.sayHello.call(n);
+        console.log(typeof x.sayHello);
+        // what does the prototype attribute of x.sayHello point to?
+        print('Object.getPrototypeOf(x.sayHello) === Function.prototype');
+        console.log(x.sayHello.hasOwnProperty('call'));
+        console.log(Function.prototype.hasOwnProperty('call'));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        function print(str) {
+            console.log(str, ' : ', eval(str)); // eval is evil, do not use in prod code
+        }
+
+        // Object.getPrototypeOf --> takes an object as an input and returns the prototype
+
+        var parent = {}; // object literals --> parent set to Object.prototype
+        var child = Object.create(parent);
+        console.log(Object.getPrototypeOf(child) === parent);
+
+        console.log(Object.getPrototypeOf(parent) === Object.prototype);
+        console.log(Object.getPrototypeOf(parent) === Object);
+
+        var nonroot = Object.create(null);
+        console.log(Object.getPrototypeOf(nonroot));
+
+        var c = {};
+        console.log(Object.getPrototypeOf(c) === Object.prototype);
+        console.log(Object.getPrototypeOf(Object.prototype));
+
+        var fn = function () {};
+
+        console.log(typeof fn);
+        print('Object.getPrototypeOf(fn) === Function.prototype');
+        print('Object.getPrototypeOf(Function.prototype) === Object.prototype');
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // toString
+        function Car(make) {
+            this.make = make;
+        }
+        Car.prototype.toString = function () {
+            return 'The car is a ' + this.make;
+        };
+
+        var merc = new Car('glk350');
+        console.log(merc.toString());
+
+        // valueOf
+        function MyNumber(val) {
+            this.val = val;
+        }
+        MyNumber.prototype.valueOf = function () {
+            return this.val;
+        };
+        var x = new MyNumber(10);
+        var y = new MyNumber(20);
+        console.log(x + y);
+
+        //toJSON
+        var strx = JSON.stringify(x);
+        console.log(typeof strx);
+        var o = JSON.parse(strx);
+        console.log(o);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
